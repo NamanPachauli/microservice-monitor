@@ -1,0 +1,16 @@
+services:
+  mongo-db:
+    image: mongo
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+
+  monitor:
+    build:
+      context: "."                  # build context
+      dockerfile: monitor.Dockerfile   # custom Dockerfile
+    container_name: monitor-service
+    ports:
+      - "5001:5001"
+    depends_on:
+      - mongo-db

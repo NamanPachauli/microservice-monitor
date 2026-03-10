@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitor-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitor-app
+  template:
+    metadata:
+      labels:
+        app: monitor-app
+    spec:
+      containers:
+      - name: monitor-app
+        image: monitor-image:latest 
+        imagePullPolicy: IfNotPresent 
+        ports:
+        - containerPort: 5001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: monitor-service
+spec:
+  type: NodePort
+  selector:
+    app: monitor-app
+  ports:
+    - protocol: TCP
+      port: 5001
+      targetPort: 5001

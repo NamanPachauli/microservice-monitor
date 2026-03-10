@@ -1,0 +1,42 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+
+# Build files
+*.exe
+*.out
+*.test
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# Docker
+docker-compose.yml
+Dockerfile*
+*.Dockerfile
+
+# Kubernetes
+k8s/
+*.yaml
+
+# Terraform
+terraform/
+*.tfstate
+*.tfstate.backup
+
+# Jenkins
+Jenkinsfile
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
